@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型和原型链</title>
+</head>
+
+<body>
+    
+</body>
+
+<script>
+    // function Foo(name, age){
+    //     this.name = name;
+    //     this.age = age;
+    //     this.class = 'class-1';
+    // }
+
+    // var f = new Foo('zhangsan', 20);
+    // console.log(f);
+
+    // var f1 = new Foo('lisi', 22);
+    // console.log(f1);
+
+    function Foo(name){
+        this.name = name;
+    }
+    Foo.prototype.alertName = function(){
+        alert(this.name);
+    }
+    // console.log(Foo.prototype)
+    var f = new Foo('zhangsan');
+    f.printName = function(){
+        console.log(this.name);
+    }
+    f.printName();
+    f.alertName();
+    f.toString();
+</script>
+
+</html>

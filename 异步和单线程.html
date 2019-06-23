@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <button id="btn1">点击按钮</button>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+    // 1.需要等待的地方就要异步，防止代码阻塞页面加载
+    // setTimeout, ajax, imgloaded, event
+
+    // console.log(100);
+    // setTimeout(function(){
+    //     console.log(200);
+    // },1000);
+    // console.log(300);
+
+    // console.log(100);
+    // alert(200);
+    // console.log(300);
+
+    // console.log('start');
+    // $.get('https://coding.imooc.com/index/getadver', function(data){
+    //     console.log(data);
+    // })
+    // console.log('end');
+
+    // console.log('start');
+    // var img = document.createElement('img');
+    // img.onload = function(){
+    //     console.log('loaded');
+    // }
+    // img.src = 'https://user-gold-cdn.xitu.io/2018/2/28/161da0fdba89dbd9?imageView2/1/w/1304/h/734/q/85/format/webp/interlace/1';
+    // console.log('end');
+
+    console.log('start');
+    document.getElementById('btn1').onclick = function(){
+        console.log('clicked');
+    }
+    console.log('end');
+    </script>
+</body>
+</html>

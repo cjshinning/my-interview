@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this使用</title>
+</head>
+<body>
+    <script>
+    // 构造函数
+    function Foo(name){
+        this.name = name;
+    }
+    var f = new Foo('zhangsan')
+
+    // 作为一个对象的属性
+    var obj = {
+        name: 'A',
+        printName: function(){
+            console.log(this.name);
+        }
+    }
+    obj.printName();
+
+    // 普通函数的this
+    function fn(){
+        console.log(this);
+    }
+    fn();   //window
+
+    // call apply bind
+    function fn1(name, age){
+        console.log('name', name);
+        console.log(this);
+    }
+    // fn1.call({x:100}, 'zhangsan', 20);  //{x:100}
+    // fn1.apply({x:200}, ['lisi', 22]);   //{x:200}
+
+    var fn2 = function(name, age){
+        console.log('name', name);
+        console.log(this);  //{y: 300}
+    }.bind({y: 300});
+    fn2();
+    </script>
+</body>
+</html>

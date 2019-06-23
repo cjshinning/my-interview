@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型和原型链</title>
+</head>
+
+<body>
+    <div id="div1">
+        <div class="detailcontennt">
+            <span id="Label3">
+                <p>标签：</p>
+                <p><a href="http://gulpjs.com/" rel="external" target="_blank">Gulp</a>&nbsp;是一个自动化工具，前端开发者可以使用它来处理常见任务：
+                </p>
+                <ul>
+                    <li>搭建web服务器</li>
+                    <li>文件保存时自动重载浏览器</li>
+                    <li>使用预处理器如Sass、LESS</li>
+                    <li>优化资源，比如压缩CSS、JavaScript、压缩图片</li>
+                </ul>
+                <p>当然Gulp能做的远不止这些。如果你够疯狂，你甚至可以使用它搭建一个静态页面生成器。Gulp真的足够强大，但你必须学会驾驭它。</p>
+                <p>这是这篇文章的主要目的。帮助你了解Gulp的基础用法，助你早日完成一统天下的大业。</p>
+                <p>在我们深入了解之前，我们先来说说为什么是Gulp。</p>
+                <h2 id="为什么是Gulp?">为什么是Gulp?</h2>
+                <p>类似Gulp的工具，我们通常称之为构建工具。如今最流行的两个构建工具是Gulp和Grunt。</p>
+                <p>已经有非常多的文章论证它们之前的异同，你随便搜一下就知道了。</p>
+                <p>主要区别是你如何使用他们构建自动化工作流。与Grunt相比，Gulp更加简洁，执行效率更高。</p>
+                <p>让我们继续学习Gulp并搭建一个简单的工作流。</p>
+                <h2 id="我们将要做的">我们将要做的</h2>
+            </span>
+        </div>
+    </div>
+</body>
+
+<script>
+    function Elem(id){
+        this.elem = document.getElementById(id);
+    }
+
+    Elem.prototype.html = function(val){
+        var elem = this.elem;
+        if(val){
+            elem.innerHTML = val;
+            return this;    //链式操作
+        }else{
+            return elem.innerHTML;
+        }
+    }
+
+    Elem.prototype.on = function(type, fn){
+        var elem = this.elem;
+        elem.addEventListener(type, fn);
+        return this;
+    }
+
+    var div1 = new Elem('div1');
+    // console.log(div1.html());
+    div1.html('<p>Hello, imooc</p>');
+    div1.on('click', function(){
+        alert('clicked');
+    })
+</script>
+
+</html>

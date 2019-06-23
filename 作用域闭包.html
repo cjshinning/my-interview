@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>闭包</title>
+</head>
+<body>
+    <script>
+    // var i, a;
+    // for(var i = 0;i<10;i++){
+    //     a = document.createElement('a');
+    //     a.innerHTML = i + '<br />';
+    //     a.addEventListener('click', function(e){
+    //         e.preventDefault();
+    //         alert(i)
+    //     })
+    //     document.body.appendChild(a);
+    // }
+
+    // var i;
+    // for(var i = 0;i<10;i++){
+    //     (function(i){
+    //         // 函数作用域
+    //         var a = document.createElement('a');
+    //         a.innerHTML = i + '<br />';
+    //         a.addEventListener('click', function(e){
+    //             e.preventDefault();
+    //             alert(i)    //自由变量，要去父作用域中取值
+    //         })
+    //         document.body.appendChild(a);
+    //     })(i)
+    // }
+
+    function isFirstLoad(){
+        var _list = [];
+
+        return function(id){
+            if(_list.indexOf(id) >= 0){
+                return false;
+            }else{
+                _list.push(id);
+                return true;
+            }
+        }
+    }
+
+    var firstLoad = isFirstLoad();
+    firstLoad(10);    //true;
+    firstLoad(10);    //false;
+    firstLoad(20);    //true;
+    firstLoad(20);    //false;
+    </script>
+</body>
+</html>

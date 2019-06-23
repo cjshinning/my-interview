@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1" class="class-div1">
+        <a href="http://baidu.com" id="link1">baidu.com</a>
+        <a href="http://baidu.com" id="link2">baidu.com</a>
+        <a href="http://baidu.com" id="link3">baidu.com</a>
+        <a href="http://baidu.com" id="link4">baidu.com</a>
+        <a href="http://baidu.com" id="link5">baidu.com</a>
+        <p id="p1">激活</p>
+        <p id="p2">取消</p>
+    </div>
+    <div id="div2">
+        <p id="p3">取消</p>
+        <p id="p4">取消</p>
+    </div>
+
+    <script>
+        function bindEvent(elem, type, selector, fn){
+            if(fn == null){
+                fn = selector;
+                selector = null;
+            }
+            elem.addEventListener(type, function(e){
+                var target;
+                if(selector){
+                    //代理
+                    target = e.target;
+                    if(target.matches(selector)){
+                        fn.call(target, e);
+                    }
+                }else{
+                    // 不是代理
+                    fn(e);
+                }
+            });
+            
+        }
+
+        var div1 = document.getElementById('div1');
+        bindEvent(div1, 'click', 'a', function(e){
+            e.preventDefault();
+            // console.log(this);
+            console.log(this.innerHTML);
+        });
+
+        var p1 = document.getElementById('p1');
+        bindEvent(p1, 'click', function(){
+            console.log(p1.innerHTML);
+        });
+        
+        // var div1 = document.getElementById('div1');
+        // bindEvent(div1, 'click', function(e){
+        //     e.preventDefault();
+        //     // console.log(e.target);
+        //     var target = e.target;
+        //     if(target.nodeName === 'A'){
+        //         console.log('clicked');
+        //     }
+        // })
+
+        // var link1 = document.getElementById('link1');
+        // link1.addEventListener('click', function(e){
+        //     e.preventDefault();
+        //     console.log(123);
+        // })
+
+        // bindEvent(link1, 'click', function(e){
+        //     e.preventDefault();
+        //     console.log(456);
+        // })
+
+        // var p1 = document.getElementById('p1');
+        // bindEvent(p1, 'click', function(e){
+        //     e.stopPropagation();
+        //     alert('激活');
+        // });
+
+        // var body = document.body;
+        // bindEvent(body, 'click', function(){
+        //     alert('取消');
+        // })
+    </script>
+</body>
+</html>

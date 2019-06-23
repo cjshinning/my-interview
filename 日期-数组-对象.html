@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <button id="btn1">点击按钮</button>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+    // console.log(Date.now());
+    
+    var dt = new Date();
+    // console.log(dt)
+    // console.log(dt.getTime());
+    // console.log(dt.getFullYear());
+    // console.log(dt.getMonth());
+    // console.log(dt.getDate());
+    // console.log(dt.getHours());
+    // console.log(dt.getMinutes());
+    // console.log(dt.getSeconds());
+
+    // var arr = ['a','b','c','d'];
+
+    // arr.forEach(function(item, index){
+    //     console.log(index, item);
+    // })
+
+    // var arr = [1,2,3,4];
+    // var result = arr.every(function(item, index){
+    //     if(item < 5){
+    //         return true;
+    //     }
+    // })
+    // console.log(result);
+
+    // var arr = [1,2,3,4];
+    // var result = arr.some(function(item, index){
+    //     if(item < 1){
+    //         return true;
+    //     }
+    // })
+    // console.log(result);
+
+    // var arr = [1,7,2,11,13,3,4];
+    // var arr2 = arr.sort(function(a, b){
+    //     return a - b;
+    // })
+    // console.log(arr2);
+
+    // var arr = [1,2,3,4]
+    // var arr2 = arr.map(function(item, index){
+    //     return '<b>'+item+'</b>';
+    // })
+    // console.log(arr2);
+
+    // var arr = [1,2,3,4]
+    // var arr2 = arr.filter(function(item, index){
+    //     if(item > 2){
+    //         return true;
+    //     }
+    // })
+    // console.log(arr2);
+
+    // var obj = {
+    //     x: 100,
+    //     y: 200,
+    //     z: 300
+    // }
+    // var key;
+    // for(key in obj){
+    //     if(obj.hasOwnProperty(key)){
+    //         console.log(key, obj[key]);
+    //     }
+    // }
+
+    function formatDate(dt){
+        if(!dt){
+            dt = new Date();
+        }
+
+        var year = dt.getFullYear();
+        var month = dt.getMonth() + 1;
+        var date = dt.getDate();
+
+        return year + '-' + month + '-' + date;
+    }
+
+    var dt = new Date();
+    console.log(formatDate(dt));
+    </script>
+</body>
+</html>
